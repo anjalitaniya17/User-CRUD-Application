@@ -1,0 +1,67 @@
+div {
+        margin-top: 30px;
+        margin-left: 50px;
+        margin-right: 50px;
+}
+
+#h2 {
+       background-color: #8b4000;
+        margin-bottom: 50px;
+        width:40%;
+        color: white;
+        
+        
+}
+
+hr {
+        width:55%;
+}
+
+#name, #age {
+        margin-right: 10px;
+        margin-bottom: 20px;
+      
+       
+}
+
+#email {
+       margin-right: 10px;
+        margin-bottom: 20px;
+        width:25%;
+         
+}
+
+#getusers:hover {
+  background-color: #00008b;
+  
+}
+
+#getusers:active {
+  background-color: #00008b;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.user-button {
+        
+        overflow: hidden;
+       
+         margin-right: 10px;
+         margin-bottom: 5px;
+        
+
+}
+
+
+
+.name ,.age, .update-button , .delete-button{
+        margin-right: 10px;
+        margin-bottom: 10px;
+}
+
+.email {
+          margin-right: 20px;
+          margin-bottom: 10px;
+          width: 95%;
+}
+
