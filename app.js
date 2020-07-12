@@ -1,46 +1,20 @@
 var express=require("express");
 var app=express();
 var bodyParser=require("body-parser");
-var mongoose=require("mongoose");
 var fs=require("fs");
+var user = require("./user_model");
+var mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost/ajax");
+
+mongoose.connect("mongodb://localhost/ajax",{ useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
-
-
-
-var userSchema=new mongoose.Schema({
-    name:String,
-    email:String,
-    age:Number
-});
-
-
-var user=mongoose.model("user",userSchema);
-
-// user.create({name:"nisha", email:"nisha@gmail.com", age:20},function(err,user){
-//     if(err){
-//         console.log(err);
-//     }
-//     else{
-//         console.log(user);
-//     }
-// });
-
-// var user=[{name:"anjali",email:"anjali@gmail.com",number:24},
-//           {name:"nisha",email:"nisha@gmail.com",number:18},
-
-
-
-// ];
 
 // get the static HTML page 
 app.get("/",function(req,res){
     res.render("./public/index.html");
 });
-
 
 // get all users from database and send to ajax 
 app.get("/users",function(req,res){
@@ -52,15 +26,9 @@ app.get("/users",function(req,res){
             
         }
     });
-    
-
-  });
+});
   
-  
-  
-  
-  
- // get data from ajax and add to database
+// get data from ajax and add to database
 app.post("/users",function(req,res){
    
     var users=req.body.Data; 
@@ -106,8 +74,8 @@ app.delete("/users/:id",function(req,res){
     });
 });
   
-app.listen(process.env.PORT,process.env.IP,function(){
-    console.log("ajax server has started");
-});
+// app.listen(process.env.PORT,process.env.IP,function(){
+//     console.log("ajax server has started");
+// });
 
-//app.listen(3001, () => console.log('App listening on port 3001'));
+app.listen(3001, () => console.log('App listening on port 3001'));
